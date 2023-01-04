@@ -3338,7 +3338,7 @@ public class MenuControl : MonoBehaviour
 					isSelected = false;
 					maxID++;
 					AdjustRect(rect, maxID);
-					if ((TintButton(tempRect, string.Empty + (k + 1), "levelStar" + num14) && Mathf.Abs(scrollSpeed) < 3f) || isSelected)
+					if ((TintButton(tempRect, (k + 1).ToString(), "levelStar" + num14) && Mathf.Abs(scrollSpeed) < 3f) || isSelected)
 					{
 						StartCoroutine(StartLevel(k + 1));
 					}
@@ -3375,7 +3375,7 @@ public class MenuControl : MonoBehaviour
 					Upgrade();
 				}
 			}
-			else if (gameControl.showLinks)
+			else if (gameControl.showLinks || Application.isEditor)
 			{
 				maxID++;
 				AdjustRect(secretRect, maxID);

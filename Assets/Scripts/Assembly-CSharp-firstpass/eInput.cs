@@ -257,7 +257,7 @@ public class eInput : MonoBehaviour
 		leftPadDown = Input.GetKey(KeyCode.JoystickButton6);
 		leftPadRight = Input.GetKey(KeyCode.JoystickButton8);
 		leftAction = Input.GetKey(KeyCode.JoystickButton11);
-		rightPadDown = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.JoystickButton16);
+		rightPadDown = /*Input.GetKey(KeyCode.A) || */Input.GetKey(KeyCode.JoystickButton16);
 		rightPadRight = Input.GetKey(KeyCode.B) || Input.GetKey(KeyCode.JoystickButton17);
 		rightPadLeft = Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.JoystickButton18);
 		rightPadUp = Input.GetKey(KeyCode.Y) || Input.GetKey(KeyCode.JoystickButton19);
@@ -280,7 +280,7 @@ public class eInput : MonoBehaviour
 		leftPadLeft = Input.GetKey(KeyCode.JoystickButton7);
 		leftPadDown = Input.GetKey(KeyCode.JoystickButton6);
 		leftPadRight = Input.GetKey(KeyCode.JoystickButton5);
-		rightPadDown = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.JoystickButton14);
+		rightPadDown = /*Input.GetKey(KeyCode.A) || */Input.GetKey(KeyCode.JoystickButton14);
 		rightPadRight = Input.GetKey(KeyCode.B) || Input.GetKey(KeyCode.JoystickButton13);
 		rightPadLeft = Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.JoystickButton15);
 		rightPadUp = Input.GetKey(KeyCode.Y) || Input.GetKey(KeyCode.JoystickButton12);
@@ -302,7 +302,7 @@ public class eInput : MonoBehaviour
 		leftPadLeft = Input.GetKey(KeyCode.LeftArrow);
 		leftPadDown = Input.GetKey(KeyCode.DownArrow);
 		leftPadRight = Input.GetKey(KeyCode.RightArrow);
-		rightPadDown = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey("space");
+		rightPadDown = /*Input.GetKey(KeyCode.A) || */Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey("space");
 		rightPadRight = Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.JoystickButton3) || Input.GetKeyDown("escape") || Input.GetKeyDown(KeyCode.Pause) || Input.GetKeyDown(KeyCode.Return);
 		rightPadLeft = Input.GetKey(KeyCode.B) || Input.GetKey(KeyCode.JoystickButton1);
 		rightPadUp = Input.GetKey(KeyCode.Y) || Input.GetKey(KeyCode.JoystickButton2);
@@ -324,7 +324,7 @@ public class eInput : MonoBehaviour
 		leftPadLeft = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.JoystickButton10);
 		leftPadDown = Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.JoystickButton9);
 		leftPadRight = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.JoystickButton11);
-		rightPadDown = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey("space");
+		rightPadDown = /*Input.GetKey(KeyCode.A) || */Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey("space");
 		rightPadRight = Input.GetKey(KeyCode.B) || Input.GetKey(KeyCode.JoystickButton3);
 		rightPadLeft = Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.JoystickButton1);
 		rightPadUp = Input.GetKey(KeyCode.Y) || Input.GetKey(KeyCode.JoystickButton2);
@@ -346,7 +346,7 @@ public class eInput : MonoBehaviour
 		leftPadLeft = Input.GetKey(KeyCode.LeftArrow);
 		leftPadDown = Input.GetKey(KeyCode.DownArrow);
 		leftPadRight = Input.GetKey(KeyCode.RightArrow);
-		rightPadDown = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey("space");
+		rightPadDown = /*Input.GetKey(KeyCode.A) || */Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey("space");
 		rightPadRight = Input.GetKey(KeyCode.B) || Input.GetKey(KeyCode.JoystickButton1) || Input.GetKeyDown("escape") || Input.GetKeyDown(KeyCode.Pause) || Input.GetKeyDown(KeyCode.Return);
 		rightPadLeft = Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.JoystickButton3);
 		rightPadUp = Input.GetKey(KeyCode.Y) || Input.GetKey(KeyCode.JoystickButton4);
@@ -419,7 +419,7 @@ public class eInput : MonoBehaviour
 		leftPadLeft = Input.GetKey(KeyCode.LeftArrow);
 		leftPadDown = Input.GetKey(KeyCode.DownArrow);
 		leftPadRight = Input.GetKey(KeyCode.RightArrow);
-		rightPadDown = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey("space");
+		rightPadDown = /*Input.GetKey(KeyCode.A) || */Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey("space");
 		rightPadRight = Input.GetKey(KeyCode.B) || Input.GetKey(KeyCode.JoystickButton1) || Input.GetKeyDown("escape") || Input.GetKeyDown(KeyCode.Pause) || Input.GetKeyDown(KeyCode.Return);
 		rightPadLeft = Input.GetKey(KeyCode.Y) || Input.GetKey(KeyCode.JoystickButton2);
 		rightPadUp = Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.JoystickButton3);
@@ -463,7 +463,7 @@ public class eInput : MonoBehaviour
 		leftPadLeft = Input.GetKey(KeyCode.LeftArrow);
 		leftPadDown = Input.GetKey(KeyCode.DownArrow);
 		leftPadRight = Input.GetKey(KeyCode.RightArrow);
-		rightPadDown = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey("space");
+		rightPadDown = /*Input.GetKey(KeyCode.A) || */Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey("space");
 		rightPadRight = Input.GetKey(KeyCode.B) || Input.GetKey(KeyCode.JoystickButton1);
 		rightPadLeft = Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.JoystickButton3);
 		rightPadUp = Input.GetKey(KeyCode.Y) || Input.GetKey(KeyCode.JoystickButton4);
