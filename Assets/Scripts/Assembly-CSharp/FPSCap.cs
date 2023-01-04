@@ -13,7 +13,7 @@ public class FPSCap : MonoBehaviour
 
 	public int frameRate = 30;
 
-	private void Awake()
+	/*private void Awake()
 	{
 		if (!Application.isEditor)
 		{
@@ -37,5 +37,5 @@ public class FPSCap : MonoBehaviour
 			Thread.Sleep((int)(1000f * (theDeltaTime - timeTaken)));
 		}
 		oldTime = Time.realtimeSinceStartup;
-	}
+	}*/
 }
