@@ -8,6 +8,7 @@ using CompilerGenerated;
 using Prime31;
 using UnityEngine;
 using UnityScript.Lang;
+using System.Linq;
 
 [Serializable]
 public class GameControl : MonoBehaviour
@@ -92,7 +93,7 @@ public class GameControl : MonoBehaviour
 				{
 				default:
 					_0024self__0024502.redeemMessage = "Contacting the cloud server...";
-					_0024get_url_0024499 = "http://ezone.com/cloud/diversion.php?action=forgot" + "&email=" + WWW.EscapeURL(_0024self__0024502.cloudEmail) + "&rnd=" + UnityEngine.Random.Range(0, 100000);
+					_0024get_url_0024499 = "http://diversionrevive.7m.pl/server/diversion.php?action=forgot" + "&email=" + WWW.EscapeURL(_0024self__0024502.cloudEmail) + "&rnd=" + UnityEngine.Random.Range(0, 100000);
 					_0024hs_get_0024500 = new WWW(_0024get_url_0024499);
 					result = (Yield(2, _0024hs_get_0024500) ? 1 : 0);
 					break;
@@ -171,12 +172,13 @@ public class GameControl : MonoBehaviour
 						PlayerPrefs.SetString("cloudEmail", _0024self__0024509.cloudEmail);
 						_0024self__0024509.menuControl.menu = "cloudcontact";
 						_0024self__0024509.redeemMessage = "Contacting the cloud server...";
-						_0024get_url_0024505 = "http://ezone.com/cloud/diversion.php";
+						_0024get_url_0024505 = "http://diversionrevive.7m.pl/server/diversion.php";
 						_0024form_0024506 = new WWWForm();
 						_0024form_0024506.AddField("action", "save");
 						_0024form_0024506.AddField("email", _0024self__0024509.cloudEmail);
 						_0024form_0024506.AddField("password", _0024self__0024509.cloudPassword);
-						_0024form_0024506.AddField("data", _0024self__0024509.playerData.lastSaveData);
+                        _0024form_0024506.AddField("data", _0024self__0024509.playerData.lastSaveData);
+                        Debug.Log(_0024self__0024509.playerData.lastSaveData);
 						_0024hs_get_0024507 = new WWW(_0024get_url_0024505, _0024form_0024506);
 						result = (Yield(2, _0024hs_get_0024507) ? 1 : 0);
 						break;
@@ -265,7 +267,7 @@ public class GameControl : MonoBehaviour
 					_0024remoteData_0024512 = null;
 					_0024self__0024519.menuControl.menu = "cloudcontact";
 					_0024self__0024519.redeemMessage = "Contacting the cloud server...";
-					_0024get_url_0024513 = "http://ezone.com/cloud/diversion.php?action=load" + "&password=" + WWW.EscapeURL(_0024self__0024519.cloudPassword) + "&email=" + WWW.EscapeURL(_0024self__0024519.cloudEmail) + "&rnd=" + UnityEngine.Random.Range(0, 100000);
+					_0024get_url_0024513 = "http://diversionrevive.7m.pl/server/diversion.php?action=load" + "&password=" + WWW.EscapeURL(_0024self__0024519.cloudPassword) + "&email=" + WWW.EscapeURL(_0024self__0024519.cloudEmail) + "&rnd=" + UnityEngine.Random.Range(0, 100000);
 					_0024hs_get_0024514 = new WWW(_0024get_url_0024513);
 					result = (Yield(2, _0024hs_get_0024514) ? 1 : 0);
 					break;
@@ -479,7 +481,7 @@ public class GameControl : MonoBehaviour
 						_0024self__0024535.lastCode = _0024currentHour_0024528;
 						PlayerPrefs.SetString("lastCode", _0024self__0024535.lastCode);
 					}
-					if (_0024self__0024535.lastCode.IndexOf(_0024whichCode_0024534) != -1)
+					if (_0024tempArray_0024526.Contains(_0024whichCode_0024534))
 					{
 						_0024self__0024535.redeemMessage = "Sorry, but you've already used that code!";
 						_0024self__0024535.menuControl.menu = "redeemerror";
@@ -566,7 +568,26 @@ public class GameControl : MonoBehaviour
 							_0024self__0024535.redeemMessage = "Cleared Scores for Bonus World";
 							_0024self__0024535.playerData.ClearWorld(100);
 						}
-						else
+                        else if (_0024_0024switch_0024104_0024529 == "CLEARALL")
+                        {
+                            PlayerPrefs.DeleteAll();
+                            _0024self__0024535.redeemMessage = "Cleared all data";
+                            _0024self__0024535.playerControl.ChangeAnimation("win", 0.35f);
+                        }
+                        else if (_0024_0024switch_0024104_0024529 == "CLEARALLANDSTOP")
+                        {
+                            PlayerPrefs.DeleteAll();
+                            _0024self__0024535.redeemMessage = "Cleared all data";
+                            _0024self__0024535.menuControl.menu = "reset";
+                            _0024self__0024535.playerControl.ChangeAnimation("win", 0.35f);
+                        }
+                        else if (_0024_0024switch_0024104_0024529 == "CLEARCHEATS")
+                        {
+                            PlayerPrefs.DeleteKey("lastCode");
+                            _0024self__0024535.redeemMessage = "Cleared cheat uses";
+                            _0024self__0024535.playerControl.ChangeAnimation("win", 0.35f);
+                        }
+                        else
 						{
 							_0024self__0024535.redeemMessage = "Sorry, but that code didn't work!";
 						}
@@ -580,13 +601,16 @@ public class GameControl : MonoBehaviour
 						if (_0024self__0024535.cheatsOn)
 						{
 							_0024self__0024535.redeemMessage = "Error: " + _0024hs_get_0024532.error;
-						}
+                            Debug.LogError(_0024hs_get_0024532.error);
+                            Debug.LogError(_0024hs_get_0024532.text);
+                        }
 						_0024self__0024535.menuControl.menu = "redeemerror";
 					}
 					else
 					{
 						_0024myString_0024533 = string.Empty + _0024hs_get_0024532.text;
-						if (Extensions.get_length(_0024myString_0024533) > 40)
+                        Debug.LogError(_0024hs_get_0024532.text);
+                        if (Extensions.get_length(_0024myString_0024533) > 40)
 						{
 							_0024self__0024535.redeemMessage = "Sorry, but that code didn't work!";
 							_0024self__0024535.menuControl.menu = "redeemerror";
@@ -1931,7 +1955,9 @@ public class GameControl : MonoBehaviour
 		touchScale = 1f;
 		redeemMessage = string.Empty;
 		secretKey = "AK73JDHSY239G48GXN";
-		getPrizeUrl = "http://www.ezone.com/iphone/scores/diversion.php?action=get&version=1";
+        // http://www.ezone.com/iphone/scores/diversion.php
+        // /diversion.php
+        getPrizeUrl = "http://diversionrevive.7m.pl/server/diversion.php?action=get&version=1";
 		houseAd = true;
 		lastCode = "none";
 		iCadeStateLast = string.Empty;
@@ -2970,7 +2996,11 @@ public class GameControl : MonoBehaviour
 		whichPrize = array[Extensions.get_length((System.Array)array) - 1];
 		array = whichPrize.Split(char.Parse("_"));
 		int num = 0;
-		switch (array[0])
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i] = array[i].Trim();
+        }
+        switch (array[0])
 		{
 		case "dailygems":
 			if (Extensions.get_length((System.Array)array) == 2)
